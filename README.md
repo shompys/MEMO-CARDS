@@ -1,4 +1,4 @@
 # Juego de memoria con cartas
 
-Probalo presionando acá:  [Play Game](https://cartas.jonathangomezit.com)
+Probalo presionando acá:  [Play Game](https://www.cartas.jonathangomezit.com)
 
