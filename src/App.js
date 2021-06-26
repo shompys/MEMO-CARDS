@@ -25,6 +25,8 @@ function App() {
     setResetCard([]);
     setCurrentCard(null);
     setIsWinner(null);
+    mixCardsAddPairs();
+
   }
 
   const fail = (currentCard, id) => setResetCard([currentCard, id]);
@@ -43,7 +45,7 @@ function App() {
 
     if(currentCard.id === card.id){
 
-      setCorrectCounter( correctCounter + 1);
+      setCorrectCounter( correctCounter + 1 );
 
       setCurrentCard(null);
 
@@ -64,15 +66,21 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('soy winner')
+
     if(correctCounter === existingPairs && correctCounter !== 0) return setIsWinner(true)
 
   }, [correctCounter, existingPairs])
 
-  useEffect(() => {
-    
+  const mixCardsAddPairs = () => {
+
     setExistingPairs(mock.length / 2);
     setCards(mock.sort(() => Math.random() > .5 ? 1 : -1 ));
+    
+  }
+
+  useEffect(() => {
+    
+    mixCardsAddPairs();
 
   }, [])
 
