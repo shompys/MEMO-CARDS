@@ -1,0 +1,22 @@
+.modal-content{
+    position:absolute;
+    background: rgba(0,0,0, .5);
+    top: 100px;
+    bottom: 300px;
+    left: 0px;
+    right: 0;
+}
+.modal-content__cartel{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #457C24;
+    width: 100%;
+    
+    box-shadow: 0 0 2px 1px rgba(14, 51, 7, 0.9);
+}
+.modal-content__h1{
+    color: #fff;
+    text-align: center;
+}

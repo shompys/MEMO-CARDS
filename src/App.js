@@ -2,12 +2,14 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useFetch } from './hooks/useFetch';
 import Header from "./components/Header";
 import Grid from "./components/Grid";
+import Modal from './components/Modal';
+import './app.css';
 
 function App() {
   const state = useFetch(`https://rickandmortyapi.com/api/character`);
   
   const [cards, setCards] = useState([]);
-  const [lives, setLives] = useState(5);
+  const [lives, setLives] = useState(3);
   const [existingPairs, setExistingPairs] = useState(0);
   const [correctCounter, setCorrectCounter] = useState(0);
   const [resetCard, setResetCard] = useState([]);
@@ -92,10 +94,13 @@ function App() {
       <Header lives={lives} existingPairs={existingPairs} correctCounter={correctCounter} handleReset={handleReset} />
 
       <Grid cards={cards} handleClick={handleClick} resetCard={resetCard} reset={reset} setReset={setReset}/>
-
       {
-        isWinner !== null ? isWinner ? <h1>GANASTE !!!!!</h1> : <h1>Perdiste !!!!</h1> : ''
+        isWinner !== null ? isWinner ? <Modal isWinner={isWinner}/> : <Modal isWinner={isWinner}/> : ''
       }
+      
+      {/* {
+        isWinner !== null ? isWinner ? <h1>GANASTE !!!!!</h1> : <h1>Perdiste !!!!</h1> : ''
+      } */}
 
     </div> 
   );
