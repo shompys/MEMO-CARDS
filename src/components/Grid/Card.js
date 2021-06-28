@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-const Card = ({id, name, content , handleClick, resetCard,reset, setReset}) => {
-
+const Card = ({id, name, image, handleClick, resetCard,reset, setReset}) => {
+    
     const [isCardFaceDown, setIsCardFaceDown] = useState(true);
     
     const handle = () => {
-
+        
+        
         setIsCardFaceDown(false);
 
-        handleClick({id, name, content}, isCardFaceDown);
+        handleClick({id, name, image}, isCardFaceDown);
 
     }
 
@@ -31,28 +32,24 @@ const Card = ({id, name, content , handleClick, resetCard,reset, setReset}) => {
     }, [reset, setReset])
     
     return(
-        !isCardFaceDown ?
+        <div className="card">
+         {!isCardFaceDown ?
         
-            <div className="card" onClick={handle}>
-                
-                <strong>
-                    { name }
-                </strong>
-                <p>
-                    {content}
-                </p>
+            <div className="front" onClick={handle}>
+
+                <img src={image} alt={name}/>
+                <span className="name-card"> { name } </span>
+
             </div>
 
-        :
+            : 
 
-            <div className="card card-2" onClick={handle}>
-                <strong>
-                    xxx
-                </strong>
-                <p>
-                    x
-                </p>
+            <div className="back" onClick={handle}>
+                <img src="https://media.ambito.com/p/e36e8e53c7abba996531db19942b4527/adjuntos/239/imagenes/038/786/0038786610/rick-and-morty.jpg" alt="rick and morty"/>
             </div>
+        }
+        </div>
+
     )
 }
 

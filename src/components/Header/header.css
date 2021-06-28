@@ -1,0 +1,15 @@
+
+.header-content{
+
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    height: 50px;
+    background: #457C24;
+
+}
+.header-content__span{
+    color:#fff;
+    font-weight: 600;
+}
+

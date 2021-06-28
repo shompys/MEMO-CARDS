@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import mock from './mock';
-
+import React, { useState, useEffect, useCallback } from 'react';
+import { useFetch } from './hooks/useFetch';
 import Header from "./components/Header";
 import Grid from "./components/Grid";
 
-
 function App() {
-
+  const state = useFetch(`https://rickandmortyapi.com/api/character`);
+  
   const [cards, setCards] = useState([]);
   const [lives, setLives] = useState(5);
   const [existingPairs, setExistingPairs] = useState(0);
@@ -66,25 +65,27 @@ function App() {
   }
 
   useEffect(() => {
-
+    console.log('useeffect de app')
     if(correctCounter === existingPairs && correctCounter !== 0) return setIsWinner(true)
 
   }, [correctCounter, existingPairs])
 
-  const mixCardsAddPairs = () => {
+  const mixCardsAddPairs = useCallback(() => {
 
-    setExistingPairs(mock.length / 2);
-    setCards(mock.sort(() => Math.random() > .5 ? 1 : -1 ));
+    setExistingPairs(state.data?.length);
     
-  }
+    if (state.data) return setCards([...state.data, ...state.data].sort(() => Math.random() > .5 ? 1 : -1));
+    
+  },[state])
 
   useEffect(() => {
     
     mixCardsAddPairs();
 
-  }, [])
+  }, [state, mixCardsAddPairs])
 
-
+  if(state.loading)return <h1>Cargando</h1>
+    
   return (
     <div className="App" style={{display: 'grid'}}>
 
@@ -99,7 +100,7 @@ function App() {
       <button onClick={handleReset} 
           style={{marginTop: '1rem', justifySelf: 'center', width: '12rem', height: '2rem'}}>
           EMPEZAR DE NUEVO
-        </button>
+      </button>
 
     </div> 
   );
