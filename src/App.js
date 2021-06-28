@@ -21,7 +21,7 @@ function App() {
   const handleReset = () => {
 
     setReset(true);
-    setLives(5);
+    setLives(3);
     setCorrectCounter(0);
     setResetCard([]);
     setCurrentCard(null);
