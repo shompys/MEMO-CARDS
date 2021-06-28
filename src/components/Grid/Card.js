@@ -6,7 +6,6 @@ const Card = ({id, name, image, handleClick, resetCard,reset, setReset}) => {
     
     const handle = () => {
         
-        
         setIsCardFaceDown(false);
 
         handleClick({id, name, image}, isCardFaceDown);
@@ -28,7 +27,6 @@ const Card = ({id, name, image, handleClick, resetCard,reset, setReset}) => {
              setReset(false)
         }
         
-
     }, [reset, setReset])
     
     return(

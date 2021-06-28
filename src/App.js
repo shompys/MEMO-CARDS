@@ -65,7 +65,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('useeffect de app')
+    
     if(correctCounter === existingPairs && correctCounter !== 0) return setIsWinner(true)
 
   }, [correctCounter, existingPairs])
