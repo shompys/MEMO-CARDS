@@ -26,7 +26,10 @@ function App() {
     setResetCard([]);
     setCurrentCard(null);
     setIsWinner(null);
-    mixCardsAddPairs();
+    // This setTimeout is to not show the final mix
+    setTimeout(() => {
+      mixCardsAddPairs();
+    },500)
 
   }
 
@@ -75,7 +78,7 @@ function App() {
   const mixCardsAddPairs = useCallback(() => {
 
     setExistingPairs(state.data?.length);
-    
+
     if (state.data) return setCards([...state.data, ...state.data].sort(() => Math.random() > .5 ? 1 : -1));
     
   },[state])
@@ -98,10 +101,6 @@ function App() {
         isWinner !== null ? isWinner ? <Modal isWinner={isWinner}/> : <Modal isWinner={isWinner}/> : ''
       }
       
-      {/* {
-        isWinner !== null ? isWinner ? <h1>GANASTE !!!!!</h1> : <h1>Perdiste !!!!</h1> : ''
-      } */}
-
     </div> 
   );
 }
