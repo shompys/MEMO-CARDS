@@ -89,18 +89,13 @@ function App() {
   return (
     <div className="App" style={{display: 'grid'}}>
 
-      <Header lives={lives} existingPairs={existingPairs} correctCounter={correctCounter}/>
+      <Header lives={lives} existingPairs={existingPairs} correctCounter={correctCounter} handleReset={handleReset} />
 
       <Grid cards={cards} handleClick={handleClick} resetCard={resetCard} reset={reset} setReset={setReset}/>
 
       {
         isWinner !== null ? isWinner ? <h1>GANASTE !!!!!</h1> : <h1>Perdiste !!!!</h1> : ''
       }
-
-      <button onClick={handleReset} 
-          style={{marginTop: '1rem', justifySelf: 'center', width: '12rem', height: '2rem'}}>
-          EMPEZAR DE NUEVO
-      </button>
 
     </div> 
   );

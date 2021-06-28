@@ -1,0 +1,18 @@
+/* {marginTop: '1rem', justifySelf: 'center', width: '12rem', height: '2rem'} */
+
+.button-reset{
+    border: none;
+    border-radius: .2rem;
+    box-shadow: 0 0 2px 1px rgba(14, 51, 7, 0.9);
+    background: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    width: 10rem;
+    height: 2rem;
+    align-items: center;
+}
+.button-reset:hover{
+    transform: scale(.99);
+    box-shadow: 0 0 2px 1px rgba(121, 204, 104, 0.9);
+}

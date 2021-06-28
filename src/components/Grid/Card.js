@@ -47,15 +47,7 @@ const Card = ({id, name, image, handleClick, resetCard,reset, setReset}) => {
             </div>
 
         </ReactCardFlip>
-        // <div className="card">
-        //  {!isCardFaceDown ?
-
-            
-            
-            
-        // }
-        // </div>
-
+        
     )
 }
 
