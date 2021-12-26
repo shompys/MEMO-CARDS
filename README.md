@@ -1,6 +1,6 @@
 # Juego de memoria con cartas
 
-Probalo presionando acá:  [Play Game](https://www.cartas.jonathangomezit.com)
+Probalo presionando acá:  [Play Game](https://cartas-shompys.netlify.app/)
 
 
 ## Instalación local 🔧
